@@ -1,0 +1,31 @@
+"a"
+
+"b"
+
+<Program>:= "a"+ | "b"+
+<Program>:= <Program> "a"+ | <Program> "b"+      =>        "abababababbbbabaaababa"
+
+
+BNF 定义加法 巴科斯诺尔范式
+<Number> = "0" | "1" | "2" | ... | "9"
+
+<DecimalNumber> = "0" | (("1" | "2" | "3" | ... | "9")<Number>*)
+
+<AdditiveExpression> = <DecimalNumber> | <AdditiveExpression> "+" <DecimalNumber>
+1 1 + 2
+
+<MultiplicativeExpression> = <DecimalNumber> |
+  <MultiplicativeExpression> "*" <DecimalNumber>
+  <MultiplicativeExpression> "/" <DecimalNumber>
+
+=> 加法
+<AdditiveExpression> = <MultiplicativeExpression> |
+  <AdditiveExpression> "+" <MultiplicativeExpression>
+  <AdditiveExpression> "-" <MultiplicativeExpression>
+
+
+<LogicalExpression> = <AdditiveExpression> |
+  <LogicalExpression> "||" <AdditiveExpression> |
+  <LogicalExpression> "&&" <AdditiveExpression>
+
+<PrimaryExpression> = <DecimalNumber> | "(" <LogicalExpression> ")"
