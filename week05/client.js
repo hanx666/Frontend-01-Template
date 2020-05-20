@@ -204,7 +204,7 @@ void async function () {
       'X-Foo2': 'customed'
     },
     body: {
-      name: 'moling3650'
+      name: 'test'
     }
   })
 
